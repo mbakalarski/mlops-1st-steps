@@ -79,8 +79,9 @@ Launch your service + databases + queues together for integration tests.
 ## Typical Practical Workflow (Example)
 
 1. Export model:
-PyTorch: torch.save(model.state_dict(), "model.pt")
-TF: model.save("model_dir")
+
+PyTorch: `torch.save(model.state_dict(), "model.pt")`
+TF: `model.save("model_dir")`
 
 2. Write API wrapper (FastAPI/Flask).
 
@@ -88,17 +89,21 @@ TF: model.save("model_dir")
 
 4. Create Dockerfile, e.g.:
 
+```
 FROM python:3.10-slim
 WORKDIR /app
 COPY . .
 RUN pip install -r requirements.txt
 CMD ["uvicorn", "app:app", "--host", "0.0.0.0"]
+```
 
 
 5. Build and run:
 
+```
 docker build -t mymlmodel .
 docker run -p 8000:8000 mymlmodel
+```
 
 
 6. Send tests from Postman or script.
