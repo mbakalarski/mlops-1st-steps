@@ -37,42 +37,42 @@ Tools that simplify this:
 ### Model Serving Libraries
 These wrap models into production-ready servers without you writing all the boilerplate.
 
-✅ TensorFlow Serving
+- TensorFlow Serving
 Ideal for TF SavedModels.
 Runs as a server that exposes gRPC/REST.
 You can point it at a dumped TensorFlow model.
 Good when you want high performance without custom code.
 
-✅ TorchServe (for PyTorch)
+- TorchServe (for PyTorch)
 Plug your dumped .pt model in.
 Includes metrics, logging, REST API.
 Good for scalable inference.
 
-✅ BentoML
+- BentoML
 Framework-agnostic serving + packaging tool.
 Lets you define a Service around your model.
 Can export to Docker images automatically.
 
-✅ MLflow
+- MLflow
 Tracks experiments and models.
 Has a generic “model packaging” format.
 Can serve models through mlflow models serve.
 Can export model to a Docker image automatically.
 
-✅ ONNX Runtime
+- ONNX Runtime
 ONNX Runtime also works well with containers.
 
 
 ### Local Testing Tools
 Before building images:
 
-✅ Postman / HTTPie
+- Postman / HTTPie
 Send test requests to your local server (e.g., REST API you wrote).
 
-✅ pytest + requests
+- pytest + requests
 Write automated tests hitting your inference endpoint.
 
-✅ Docker Compose
+- Docker Compose
 Launch your service + databases + queues together for integration tests.
 
 
@@ -105,13 +105,13 @@ docker run -p 8000:8000 mymlmodel
 
 
 ##  When to Choose What
-|Goal                       |	Best Tool           |
------------------------------------------------------
-Simple local prototyping    |   FastAPI + Docker
-Auto Docker packaging       |   BentoML / MLflow
-Production TF server        |   TensorFlow Serving
-Production PyTorch server   |   TorchServe
-Cross-framework export      |   ONNX
+|Goal                        |	Best Tool           |
+|----------------------------|----------------------|
+|Simple local prototyping    |   FastAPI + Docker   |
+|Auto Docker packaging       |   BentoML / MLflow   |
+|Production TF server        |   TensorFlow Serving |
+|Production PyTorch server   |   TorchServe         |
+|Cross-framework export      |   ONNX               |
 
 
 
@@ -119,9 +119,9 @@ Cross-framework export      |   ONNX
 
 Why ONNX is often the best choice for a minimal portable model file:
 
-✅ Works with many frameworks (PyTorch, TensorFlow, scikit-learn, XGBoost, etc.)
-✅ Produces a lightweight model artifact (.onnx)
-✅ Inference can be run without framework-specific runtimes (via ONNX Runtime)
-✅ Great for building, packaging, and testing in isolation
-✅ Portable and consistent — ideal for deployment
+- Works with many frameworks (PyTorch, TensorFlow, scikit-learn, XGBoost, etc.)
+- Produces a lightweight model artifact (.onnx)
+- Inference can be run without framework-specific runtimes (via ONNX Runtime)
+- Great for building, packaging, and testing in isolation
+- Portable and consistent — ideal for deployment
 
