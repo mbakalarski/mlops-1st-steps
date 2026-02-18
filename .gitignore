@@ -1,5 +1,7 @@
 venv
 .venv
 *.pyc
-saved_model
+__pycache__
+#
+_savedmodel
 
